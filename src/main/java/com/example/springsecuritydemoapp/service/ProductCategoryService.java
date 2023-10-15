@@ -3,6 +3,7 @@ package com.example.springsecuritydemoapp.service;
 
 import com.example.springsecuritydemoapp.entity.ProductCategory;
 import com.example.springsecuritydemoapp.repository.ProductCategoryRepository;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductCategoryService {
+public class ProductCategoryService extends ProductService {
 
     ProductCategoryRepository productCategoryRepository;
 
@@ -27,7 +28,11 @@ public class ProductCategoryService {
           throw new EntityNotFoundException("product category with category id : "+categoryId+" not found");
     }
 
+    //@Scheduled(cron = "*/3 * * * * *")
     public List<ProductCategory> listProductCategory(){
+        super.listProductCategory();
+        logger.info("Thread name : {}",Thread.currentThread().getName());
+        logger.info("listing product category");
        return productCategoryRepository.findAll();
     }
 
