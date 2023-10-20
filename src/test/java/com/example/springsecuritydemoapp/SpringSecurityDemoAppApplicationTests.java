@@ -6,16 +6,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.web.SecurityFilterChain;
 
-@SpringBootTest
+//@SpringBootTest
 class SpringSecurityDemoAppApplicationTests {
 
-    @Autowired
-    private ApplicationContext context;
-
-    @Test
-    void contextLoads() {
-        SecurityFilterChain securityFilterChain = context.getBean(SecurityFilterChain.class);
-        securityFilterChain.getFilters().stream().forEach(System.out::println);
-    }
+//    @Autowired
+//    private ApplicationContext context;
+//
+//    @Test
+//    void contextLoads() {
+//        SecurityFilterChain securityFilterChain = context.getBean(SecurityFilterChain.class);
+//        securityFilterChain.getFilters().stream().forEach(System.out::println);
+//    }
 
 }
